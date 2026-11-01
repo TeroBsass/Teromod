@@ -1,0 +1,11 @@
+{
+  "itemGroup.teromod": "Tero Mod Tab",
+  "teromod.configuration.title": "Tero Mod Configs",
+  "teromod.configuration.section.teromod.common.toml": "Tero Mod Configs",
+  "teromod.configuration.section.teromod.common.toml.title": "Tero Mod Configs",
+  "teromod.configuration.items": "Item List",
+  "teromod.configuration.logDirtBlock": "Log Dirt Block",
+  "teromod.configuration.magicNumberIntroduction": "Magic Number Text",
+  "teromod.configuration.magicNumber": "Magic Number",
+  "block.teromod.player_detector_rail": "Player Detector Rail"
+}
