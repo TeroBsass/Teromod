@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:redstone",
+  "base": "minecraft:rail",
+  "addition": "minecraft:iron_nugget",
+  "result": {
+    "id": "minecraft:rail",
+    "count": 2
+  }
+}

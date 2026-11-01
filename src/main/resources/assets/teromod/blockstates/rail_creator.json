@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "teromod:block/rail_creator"
+      }
+    }
+  ]
+}
