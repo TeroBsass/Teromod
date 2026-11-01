@@ -7,5 +7,8 @@
   "teromod.configuration.logDirtBlock": "Log Dirt Block",
   "teromod.configuration.magicNumberIntroduction": "Magic Number Text",
   "teromod.configuration.magicNumber": "Magic Number",
-  "block.teromod.player_detector_rail": "Player Detector Rail"
+  "block.teromod.player_detector_rail": "Player Detector Rail",
+  "block.teromod.rail_creator": "Rail Creator",
+  "item.teromod.player_detector_rail": "Player Detector Rail",
+  "item.teromod.rail_creator": "Rail Creator"
 }
