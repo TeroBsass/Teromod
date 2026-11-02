@@ -42,6 +42,7 @@ public class TeroMod {
                     .displayItems((parameters, output) -> {
                         output.accept(ModBlocks.PLAYER_DETECTOR_RAIL_ITEM);
                         output.accept(ModBlocks.RAIL_CREATOR_ITEM);
+                        output.accept(ModBlocks.STOPPER_ITEM);
                     })
                     .build());
 

@@ -12,17 +12,13 @@ import net.minecraft.world.Container;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.minecart.MinecartCommandBlock;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.DispenserBlockEntity;
-import net.minecraft.world.level.block.entity.DropperBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -58,7 +54,7 @@ public class PlayerDetectorRailBlock extends BaseRailBlock {
         return state.getValue(POWERED) ? 15 : 0;
     }
 
-    private static boolean hasPlayerPassenger(Entity cart) {
+    static boolean hasPlayerPassenger(Entity cart) {
         return cart.getPassengers().stream().anyMatch(p -> p instanceof Player);
     }
 
@@ -69,7 +65,7 @@ public class PlayerDetectorRailBlock extends BaseRailBlock {
         this.checkPressed(level, pos, state);
     }
 
-    private Direction getImpulseDirection(Level level, BlockPos pos, BlockState state, AbstractMinecart cart) {
+    Direction getImpulseDirection(Level level, BlockPos pos, BlockState state, AbstractMinecart cart) {
         Vec3 motion = cart.getDeltaMovement();
         RailShape shape = state.getValue(SHAPE);
         boolean eastWest = shape == RailShape.EAST_WEST
@@ -103,42 +99,10 @@ public class PlayerDetectorRailBlock extends BaseRailBlock {
         double relativeX = cart.getX() - (pos.getX() + 0.5);
         double relativeZ = cart.getZ() - (pos.getZ() + 0.5);
         if (relativeX * motion.x + relativeZ * motion.z < 0.0) {
-            this.destroyCart(level, pos, cart);
             return false;
         }
 
         return motion.x * impulseDirection.getStepX() + motion.z * impulseDirection.getStepZ() > 0.0;
-    }
-
-    private void destroyCart(Level level, BlockPos railPos, AbstractMinecart cart) {
-        ItemStack cartItem = cart.getPickResult();
-        double x = cart.getX();
-        double y = cart.getY();
-        double z = cart.getZ();
-        cart.ejectPassengers();
-        cart.discard();
-
-        for (Direction direction : Direction.values()) {
-            BlockPos dispenserPos = railPos.relative(direction);
-            if (level.getBlockState(dispenserPos).is(Blocks.DISPENSER)
-                    && level.getBlockEntity(dispenserPos) instanceof DispenserBlockEntity dispenser
-                    && !(dispenser instanceof DropperBlockEntity)) {
-                int originalCount = cartItem.getCount();
-                ItemStack remainder = dispenser.insertItem(cartItem);
-                if (remainder.getCount() < originalCount) {
-                    dispenser.setChanged();
-                }
-                if (remainder.isEmpty()) {
-                    return;
-                }
-                cartItem = remainder;
-                break;
-            }
-        }
-
-        if (!cartItem.isEmpty()) {
-            level.addFreshEntity(new ItemEntity(level, x, y, z, cartItem));
-        }
     }
 
     private static boolean hasRailAt(Level level, BlockPos pos, Direction d) {

@@ -9,6 +9,8 @@
   "teromod.configuration.magicNumber": "Magic Number",
   "block.teromod.player_detector_rail": "Player Detector Rail",
   "block.teromod.rail_creator": "Rail Creator",
+  "block.teromod.stopper": "Stopper",
   "item.teromod.player_detector_rail": "Player Detector Rail",
-  "item.teromod.rail_creator": "Rail Creator"
+  "item.teromod.rail_creator": "Rail Creator",
+  "item.teromod.stopper": "Stopper"
 }

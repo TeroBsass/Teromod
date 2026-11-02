@@ -3,9 +3,11 @@ package com.tero.teromod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -39,4 +41,15 @@ public class ModBlocks {
     public static final DeferredItem<BlockItem> RAIL_CREATOR_ITEM = ITEMS.registerItem(
             "rail_creator", props -> new BlockItem(RAIL_CREATOR.get(), props)
     );
+
+    public static final DeferredBlock<StopperBlock> STOPPER =
+            BLOCKS.register("stopper", id -> new StopperBlock(
+                    BlockBehaviour.Properties.of()
+                            .noOcclusion()
+                            .strength(4F)
+                            .sound(SoundType.METAL)
+                            .setId(ResourceKey.create(Registries.BLOCK, id))));
+
+    public static final DeferredItem<BlockItem> STOPPER_ITEM =
+            ITEMS.registerSimpleBlockItem(STOPPER);
 }

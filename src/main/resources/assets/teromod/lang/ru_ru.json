@@ -2,6 +2,8 @@
   "itemGroup.teromod": "ТероМод",
   "block.teromod.player_detector_rail": "Рельсы-детектор игроков",
   "block.teromod.rail_creator": "Создатель рельсов",
+  "block.teromod.stopper": "Стоппер",
   "item.teromod.player_detector_rail": "Рельсы-детектор игроков",
-  "item.teromod.rail_creator": "Создатель рельсов"
+  "item.teromod.rail_creator": "Создатель рельсов",
+  "item.teromod.stopper": "Стоппер"
 }

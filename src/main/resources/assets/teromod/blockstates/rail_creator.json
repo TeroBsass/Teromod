@@ -1,9 +1,20 @@
 {
   "multipart": [
     {
-      "apply": {
-        "model": "teromod:block/rail_creator"
-      }
+      "when": { "facing": "north" },
+      "apply": { "model": "teromod:block/rail_creator" }
+    },
+    {
+      "when": { "facing": "east" },
+      "apply": { "model": "teromod:block/rail_creator", "y": 90 }
+    },
+    {
+      "when": { "facing": "south" },
+      "apply": { "model": "teromod:block/rail_creator", "y": 180 }
+    },
+    {
+      "when": { "facing": "west" },
+      "apply": { "model": "teromod:block/rail_creator", "y": 270 }
     }
   ]
 }

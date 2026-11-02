@@ -1,8 +1,26 @@
 {
-  "parent": "minecraft:block/cube_bottom_top",
+  "parent": "minecraft:block/block",
   "textures": {
-    "top": "minecraft:block/smithing_table_top",
-    "side": "teromod:block/rail_creator_side",
-    "bottom": "minecraft:block/smithing_table_bottom"
-  }
+    "particle": "teromod:block/front",
+    "top": "teromod:block/top",
+    "bottom": "teromod:block/bottom",
+    "front": "teromod:block/front",
+    "back": "teromod:block/back",
+    "left": "teromod:block/left",
+    "right": "teromod:block/right"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down": { "texture": "#bottom" },
+        "up": { "texture": "#top" },
+        "north": { "texture": "#front" },
+        "south": { "texture": "#back" },
+        "west": { "texture": "#left" },
+        "east": { "texture": "#right" }
+      }
+    }
+  ]
 }
