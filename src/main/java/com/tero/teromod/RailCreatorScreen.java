@@ -1,12 +1,11 @@
 package com.tero.teromod;
 
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
-import org.jspecify.annotations.NonNull;
 
 public class RailCreatorScreen extends AbstractContainerScreen<RailCreatorMenu> {
     private static final Identifier GUI_TEXTURE =
@@ -19,7 +18,7 @@ public class RailCreatorScreen extends AbstractContainerScreen<RailCreatorMenu> 
     }
 
     @Override
-    public void extractBackground(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         graphics.blit(
                 RenderPipelines.GUI_TEXTURED,
                 GUI_TEXTURE,
@@ -30,13 +29,11 @@ public class RailCreatorScreen extends AbstractContainerScreen<RailCreatorMenu> 
                 this.imageWidth,
                 this.imageHeight,
                 GUI_TEXTURE_WIDTH,
-                GUI_TEXTURE_HEIGHT,
-                GUI_TEXTURE_WIDTH,
                 GUI_TEXTURE_HEIGHT
         );
     }
 
     @Override
-    protected void extractLabels(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
+    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
     }
 }
