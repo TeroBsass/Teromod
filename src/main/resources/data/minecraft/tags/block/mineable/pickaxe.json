@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "teromod:player_detector_rail",
+    "teromod:ender_dispenser",
     "teromod:stopper"
   ]
 }

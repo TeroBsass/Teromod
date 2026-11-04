@@ -61,7 +61,8 @@ public class ModBlocks {
     public static final DeferredBlock<EnderDispenserBlock> ENDER_DISPENSER =
             BLOCKS.register("ender_dispenser", id -> new EnderDispenserBlock(
                     BlockBehaviour.Properties.of()
-                            .strength(1.5F)
+                            .requiresCorrectToolForDrops()
+                            .strength(3.5F)
                             .sound(SoundType.STONE)
                             .setId(ResourceKey.create(Registries.BLOCK, id))
             ));

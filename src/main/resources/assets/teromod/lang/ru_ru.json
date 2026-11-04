@@ -3,7 +3,9 @@
   "block.teromod.player_detector_rail": "Рельсы-детектор игроков",
   "block.teromod.rail_creator": "Создатель рельсов",
   "block.teromod.stopper": "Стоппер",
+  "block.teromod.ender_dispenser": "Эндер-раздатчик",
   "item.teromod.player_detector_rail": "Рельсы-детектор игроков",
   "item.teromod.rail_creator": "Создатель рельсов",
-  "item.teromod.stopper": "Стоппер"
+  "item.teromod.stopper": "Стоппер",
+  "item.teromod.ender_dispenser": "Эндер-раздатчик"
 }

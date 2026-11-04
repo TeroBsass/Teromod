@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "minecraft:dispenser",
+    "minecraft:ender_chest"
+  ],
+  "result": {
+    "id": "teromod:ender_dispenser",
+    "count": 1
+  }
+}
