@@ -10,7 +10,7 @@ import org.jspecify.annotations.NonNull;
 
 public class EnderDispenserScreen extends AbstractContainerScreen<EnderDispenserMenu> {
     private static final Identifier GUI_TEXTURE =
-            Identifier.fromNamespaceAndPath(TeroMod.MODID, "textures/gui/Dispenser_GUI.png");
+            Identifier.fromNamespaceAndPath(TeroMod.MODID, "textures/gui/dispensergui.png");
     private static final int GUI_TEXTURE_WIDTH = 352;
     private static final int GUI_TEXTURE_HEIGHT = 329;
 
