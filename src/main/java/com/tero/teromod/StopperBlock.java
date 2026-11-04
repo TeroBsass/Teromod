@@ -196,8 +196,10 @@ public class StopperBlock extends Block {
                     double centerY = candidate.getY() + 0.5 - y;
                     double centerZ = candidate.getZ() + 0.5 - z;
                     double distance = centerX * centerX + centerY * centerY + centerZ * centerZ;
+                    BlockState candidateState = level.getBlockState(candidate);
                     if (distance > nearestDistance
-                            || !level.getBlockState(candidate).is(Blocks.DISPENSER)
+                            || !(candidateState.is(Blocks.DISPENSER)
+                            || candidateState.is(ModBlocks.ENDER_DISPENSER.get()))
                             || !(level.getBlockEntity(candidate) instanceof DispenserBlockEntity candidateDispenser)
                             || candidateDispenser instanceof DropperBlockEntity) {
                         continue;
