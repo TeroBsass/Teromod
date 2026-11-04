@@ -13,4 +13,8 @@ public class ModMenus {
 
     public static final Supplier<MenuType<RailCreatorMenu>> RAIL_CREATOR = MENUS.register(
             "rail_creator", () -> IMenuTypeExtension.create(RailCreatorMenu::new));
+
+    public static final Supplier<MenuType<EnderDispenserMenu>> ENDER_DISPENSER = MENUS.register(
+            "ender_dispenser", () -> IMenuTypeExtension.create(EnderDispenserMenu::new)
+    );
 }

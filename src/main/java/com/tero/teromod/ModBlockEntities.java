@@ -17,4 +17,11 @@ public final class ModBlockEntities {
                     false,
                     ModBlocks.RAIL_CREATOR.get()
                     ));
+
+    public static final Supplier<BlockEntityType<EnderDispenserEntity>> ENDER_DISPENSER =
+            BLOCK_ENTITIES.register("ender_dispenser", () -> new BlockEntityType<>(
+                    EnderDispenserEntity::new,
+                    false,
+                    ModBlocks.ENDER_DISPENSER.get()
+            ));
 }

@@ -29,11 +29,11 @@ public class TeroMod {
     public static final String MODID = "teromod";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
+    // Create a Deferred Register to hold Blocks which will all be registered under the "teromod" namespace
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
-    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
+    // Create a Deferred Register to hold Items which will all be registered under the "teromod" namespace
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
+    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "teromod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TEROMOD_TAB =
             CREATIVE_MODE_TABS.register("teromod", () -> CreativeModeTab.builder()
@@ -43,6 +43,7 @@ public class TeroMod {
                         output.accept(ModBlocks.PLAYER_DETECTOR_RAIL_ITEM);
                         output.accept(ModBlocks.RAIL_CREATOR_ITEM);
                         output.accept(ModBlocks.STOPPER_ITEM);
+                        output.accept(ModBlocks.ENDER_DISPENSER_ITEM);
                     })
                     .build());
 
