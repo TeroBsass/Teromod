@@ -3,9 +3,11 @@ package com.tero.teromod;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.NonNullList;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
@@ -24,8 +26,8 @@ public class EnderDispenserStorage extends SavedData implements Container {
                             .forGetter(storage -> List.copyOf(storage.items))
             ).apply(instance, EnderDispenserStorage::new));
 
-    private static final SavedDataType<EnderDispenserStorage> DATA_TYPE = new SavedDataType<>(
-            "teromod_ender_dispenser",
+    private static final SavedDataType<EnderDispenserStorage> DATA_TYPE = new SavedDataType<EnderDispenserStorage>(
+            Identifier.fromNamespaceAndPath(TeroMod.MODID, "ender_dispenser"),
             EnderDispenserStorage::new,
             CODEC,
             DataFixTypes.LEVEL
@@ -97,7 +99,7 @@ public class EnderDispenserStorage extends SavedData implements Container {
     }
 
     @Override
-    public boolean stillValid(@NonNull net.minecraft.world.entity.player.Player player) {
+    public boolean stillValid(@NonNull Player player) {
         return true;
     }
 
@@ -112,7 +114,4 @@ public class EnderDispenserStorage extends SavedData implements Container {
         setDirty();
     }
 
-    NonNullList<ItemStack> getItems() {
-        return this.items;
-    }
 }

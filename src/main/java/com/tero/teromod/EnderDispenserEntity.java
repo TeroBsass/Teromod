@@ -53,20 +53,35 @@ public class EnderDispenserEntity extends DispenserBlockEntity implements MenuPr
     @Override
     public @NonNull ItemStack removeItem(int slot, int count) {
         EnderDispenserStorage storage = storage();
-        return storage == null ? ItemStack.EMPTY : storage.removeItem(slot, count);
+        if (storage == null) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack removed = storage.removeItem(slot, count);
+        if (!removed.isEmpty()) {
+            super.setChanged();
+        }
+        return removed;
     }
 
     @Override
     public @NonNull ItemStack removeItemNoUpdate(int slot) {
         EnderDispenserStorage storage = storage();
-        return storage == null ? ItemStack.EMPTY : storage.removeItemNoUpdate(slot);
+        if (storage == null) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack removed = storage.removeItemNoUpdate(slot);
+        if (!removed.isEmpty()) {
+            super.setChanged();
+        }
+        return removed;
     }
 
     @Override
     public void setItem(int slot, @NonNull ItemStack itemStack) {
         EnderDispenserStorage storage = storage();
-        if (storage != null) {
+        if (storage != null && slot >= 0 && slot < EnderDispenserStorage.CONTAINER_SIZE) {
             storage.setItem(slot, itemStack);
+            super.setChanged();
         }
     }
 
@@ -80,19 +95,20 @@ public class EnderDispenserEntity extends DispenserBlockEntity implements MenuPr
         EnderDispenserStorage storage = storage();
         if (storage != null) {
             storage.clearContent();
+            super.setChanged();
         }
     }
 
     @Override
     public int getRandomSlot(@NonNull RandomSource random) {
-        int first = random.nextInt(EnderDispenserStorage.CONTAINER_SIZE);
-        for (int offset = 0; offset < EnderDispenserStorage.CONTAINER_SIZE; offset++) {
-            int slot = (first + offset) % EnderDispenserStorage.CONTAINER_SIZE;
-            if (!getItem(slot).isEmpty()) {
-                return slot;
+        int selectedSlot = -1;
+        int seenItems = 1;
+        for (int slot = 0; slot < EnderDispenserStorage.CONTAINER_SIZE; slot++) {
+            if (!getItem(slot).isEmpty() && random.nextInt(seenItems++) == 0) {
+                selectedSlot = slot;
             }
         }
-        return -1;
+        return selectedSlot;
     }
 
     @Override
@@ -112,6 +128,6 @@ public class EnderDispenserEntity extends DispenserBlockEntity implements MenuPr
     @Override
     public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
         EnderDispenserStorage storage = storage();
-        return storage == null ? null : new EnderDispenserMenu(containerId, inventory, storage, this.worldPosition);
+        return storage == null ? null : new EnderDispenserMenu(containerId, inventory, this, this.worldPosition);
     }
 }
