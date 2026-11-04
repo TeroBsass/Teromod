@@ -17,7 +17,7 @@ import org.jspecify.annotations.NonNull;
 import java.util.List;
 
 public class EnderDispenserStorage extends SavedData implements Container {
-    public static final int CONTAINER_SIZE = 27;
+    public static final int CONTAINER_SIZE = 9;
 
     private static final Codec<EnderDispenserStorage> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(

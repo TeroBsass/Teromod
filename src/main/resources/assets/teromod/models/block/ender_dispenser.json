@@ -1,3 +1,8 @@
 {
-  "parent": "minecraft:block/dispenser"
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "teromod:block/dispenser-png",
+    "side": "minecraft:block/furnace_side",
+    "top": "minecraft:block/furnace_top"
+  }
 }

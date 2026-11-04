@@ -1,26 +1,43 @@
 package com.tero.teromod;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import org.jspecify.annotations.NonNull;
 
 public class EnderDispenserScreen extends AbstractContainerScreen<EnderDispenserMenu> {
+    private static final Identifier GUI_TEXTURE =
+            Identifier.fromNamespaceAndPath(TeroMod.MODID, "textures/gui/Dispenser_GUI.png");
+    private static final int GUI_TEXTURE_WIDTH = 352;
+    private static final int GUI_TEXTURE_HEIGHT = 329;
+
     public EnderDispenserScreen(EnderDispenserMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title, 176, 166);
+        super(menu, inventory, title, 176, 165);
     }
 
     @Override
     public void extractBackground(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY,
                                   float partialTick) {
-        graphics.fill(this.leftPos, this.topPos, this.leftPos + this.imageWidth,
-                this.topPos + this.imageHeight, 0xFF17191D);
-        graphics.fill(this.leftPos + 1, this.topPos + 1, this.leftPos + this.imageWidth - 1,
-                this.topPos + this.imageHeight - 1, 0xFF777B82);
-        graphics.fill(this.leftPos + 4, this.topPos + 4, this.leftPos + this.imageWidth - 4,
-                this.topPos + 74, 0xFF3B3E44);
-        graphics.fill(this.leftPos + 4, this.topPos + 78, this.leftPos + this.imageWidth - 4,
-                this.topPos + this.imageHeight - 4, 0xFF3B3E44);
+        graphics.blit(
+                RenderPipelines.GUI_TEXTURED,
+                GUI_TEXTURE,
+                this.leftPos,
+                this.topPos,
+                0,
+                0,
+                this.imageWidth,
+                this.imageHeight,
+                GUI_TEXTURE_WIDTH,
+                GUI_TEXTURE_HEIGHT,
+                GUI_TEXTURE_WIDTH,
+                GUI_TEXTURE_HEIGHT
+        );
+    }
+
+    @Override
+    protected void extractLabels(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
     }
 }

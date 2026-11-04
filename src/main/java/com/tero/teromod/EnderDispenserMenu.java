@@ -32,8 +32,8 @@ public class EnderDispenserMenu extends AbstractContainerMenu {
         this.blockPos = blockPos;
 
         for (int row = 0; row < 3; row++) {
-            for (int column = 0; column < 9; column++) {
-                addSlot(new Slot(container, column + row * 9, 8 + column * 18, 18 + row * 18));
+            for (int column = 0; column < 3; column++) {
+                addSlot(new Slot(container, column + row * 3, 62 + column * 18, 17 + row * 18));
             }
         }
 
