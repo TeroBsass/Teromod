@@ -7,5 +7,7 @@
   "item.teromod.player_detector_rail": "Рельсы-детектор игроков",
   "item.teromod.rail_creator": "Создатель рельсов",
   "item.teromod.stopper": "Стоппер",
-  "item.teromod.ender_dispenser": "Эндер-раздатчик"
+  "item.teromod.ender_dispenser": "Эндер-раздатчик",
+  "block.teromod.book_table": "Книжный столик",
+  "item.teromod.book_table": "Книжный столик"
 }

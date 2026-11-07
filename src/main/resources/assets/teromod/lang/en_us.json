@@ -14,5 +14,7 @@
   "item.teromod.player_detector_rail": "Player Detector Rail",
   "item.teromod.rail_creator": "Rail Creator",
   "item.teromod.stopper": "Stopper",
-  "item.teromod.ender_dispenser": "Ender Dispenser"
+  "item.teromod.ender_dispenser": "Ender Dispenser",
+  "block.teromod.book_table": "Book Table",
+  "item.teromod.book_table": "Book Table"
 }

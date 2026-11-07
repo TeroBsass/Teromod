@@ -3,6 +3,7 @@
   "values": [
     "teromod:player_detector_rail",
     "teromod:ender_dispenser",
-    "teromod:stopper"
+    "teromod:stopper",
+    "teromod:rail_creator"
   ]
 }

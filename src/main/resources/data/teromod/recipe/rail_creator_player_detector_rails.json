@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:redstone",
+  "base": "teromod:player_detector_rail",
+  "addition": "minecraft:redstone",
+  "result": {
+    "id": "teromod:player_detector_rail",
+    "count": 2
+  }
+}

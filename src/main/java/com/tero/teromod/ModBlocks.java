@@ -70,4 +70,17 @@ public class ModBlocks {
     public static final DeferredItem<BlockItem> ENDER_DISPENSER_ITEM =
             ITEMS.registerSimpleBlockItem(ENDER_DISPENSER);
 
+    public static final DeferredBlock<BookTableBlock> BOOK_TABLE =
+            BLOCKS.register("book_table", id -> new BookTableBlock(
+                    BlockBehaviour.Properties.of()
+                            .requiresCorrectToolForDrops()
+                            .strength(2.5F)
+                            .sound(SoundType.CHISELED_BOOKSHELF)
+                            .noOcclusion()
+                            .lightLevel(state -> state.getValue(BookTableBlock.LIT) ? 5 : 0)
+                            .setId(ResourceKey.create(Registries.BLOCK, id))
+            ));
+
+    public static final DeferredItem<BlockItem> BOOK_TABLE_ITEM =
+            ITEMS.registerSimpleBlockItem(BOOK_TABLE);
 }

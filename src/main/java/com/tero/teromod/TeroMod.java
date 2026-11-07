@@ -44,6 +44,7 @@ public class TeroMod {
                         output.accept(ModBlocks.RAIL_CREATOR_ITEM);
                         output.accept(ModBlocks.STOPPER_ITEM);
                         output.accept(ModBlocks.ENDER_DISPENSER_ITEM);
+                        output.accept(ModBlocks.BOOK_TABLE_ITEM);
                     })
                     .build());
 
@@ -59,6 +60,7 @@ public class TeroMod {
         ModBlocks.ITEMS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModMenus.MENUS.register(modEventBus);
+        ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered

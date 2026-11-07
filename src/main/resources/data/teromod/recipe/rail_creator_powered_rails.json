@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:redstone",
+  "base": "minecraft:powered_rail",
+  "addition": "minecraft:gold_nugget",
+  "result": {
+    "id": "minecraft:powered_rail",
+    "count": 2
+  }
+}
