@@ -38,3 +38,7 @@ run/
 **/src/generated/**/.cache/
 repo/
 !**/src/**/repo/
+/Mvswitcher/gradle/wrapper/gradle-wrapper.jar
+/Mvswitcher/gradle/wrapper/gradle-wrapper.properties
+/Mvswitcher/gradlew
+/Mvswitcher/gradlew.bat
