@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:crying_obsidian",
+    "B": "minecraft:bookshelf",
+    "K": "minecraft:book",
+    "D": "minecraft:diamond"
+  },
+  "pattern": [
+    " K ",
+    "CDC",
+    "BBB"
+  ],
+  "result": {
+    "id": "teromod:book_table",
+    "count": 1
+  }
+}

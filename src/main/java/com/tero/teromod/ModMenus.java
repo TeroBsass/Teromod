@@ -17,4 +17,8 @@ public class ModMenus {
     public static final Supplier<MenuType<EnderDispenserMenu>> ENDER_DISPENSER = MENUS.register(
             "ender_dispenser", () -> IMenuTypeExtension.create(EnderDispenserMenu::new)
     );
+
+    public static final Supplier<MenuType<BookTableMenu>> BOOK_TABLE = MENUS.register(
+            "book_table", () -> IMenuTypeExtension.create(BookTableMenu::new)
+    );
 }

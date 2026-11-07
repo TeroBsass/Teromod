@@ -24,4 +24,11 @@ public final class ModBlockEntities {
                     false,
                     ModBlocks.ENDER_DISPENSER.get()
             ));
+
+    public static final Supplier<BlockEntityType<BookTableEntity>> BOOK_TABLE =
+            BLOCK_ENTITIES.register("book_table", () -> new BlockEntityType<>(
+                    BookTableEntity::new,
+                    false,
+                    ModBlocks.BOOK_TABLE.get()
+            ));
 }

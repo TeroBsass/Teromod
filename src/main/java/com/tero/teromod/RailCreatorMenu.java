@@ -49,7 +49,9 @@ public class RailCreatorMenu extends AbstractContainerMenu {
         addSlot(new Slot(container, RailCreatorEntity.SLOT_IRON_NUGGET, 44, 46) {
             @Override
             public boolean mayPlace(@NonNull ItemStack stack) {
-                return stack.is(Items.IRON_NUGGET);
+                return stack.is(Items.IRON_NUGGET)
+                        || stack.is(Items.GOLD_NUGGET)
+                        || stack.is(Items.REDSTONE);
             }
         });
         addSlot(new Slot(container, RESULT_SLOT, 98, 46) {

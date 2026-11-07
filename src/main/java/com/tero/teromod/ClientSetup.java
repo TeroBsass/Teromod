@@ -11,5 +11,6 @@ public class ClientSetup {
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenus.RAIL_CREATOR.get(), RailCreatorScreen::new);
         event.register(ModMenus.ENDER_DISPENSER.get(), EnderDispenserScreen::new);
+        event.register(ModMenus.BOOK_TABLE.get(), BookTableScreen::new);
     }
 }

@@ -10,7 +10,7 @@ import org.jspecify.annotations.NonNull;
 
 public class RailCreatorScreen extends AbstractContainerScreen<RailCreatorMenu> {
     private static final Identifier GUI_TEXTURE =
-            Identifier.fromNamespaceAndPath(TeroMod.MODID, "textures/block/rail_creator_gui.png");
+            Identifier.fromNamespaceAndPath(TeroMod.MODID, "textures/gui/rail_creator_gui.png");
     private static final int GUI_TEXTURE_WIDTH = 1292;
     private static final int GUI_TEXTURE_HEIGHT = 1218;
 
