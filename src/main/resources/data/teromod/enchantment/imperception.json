@@ -2,8 +2,8 @@
   "description": {
     "translate": "enchantment.teromod.imperception"
   },
-  "supported_items": "#minecraft:enchantable/sword",
-  "primary_items": "#minecraft:enchantable/sword",
+  "supported_items": "#teromod:imperception_weapons",
+  "primary_items": "#teromod:imperception_weapons",
   "weight": 2,
   "max_level": 3,
   "min_cost": {
