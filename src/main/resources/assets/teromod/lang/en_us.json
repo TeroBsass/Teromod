@@ -16,5 +16,9 @@
   "item.teromod.stopper": "Stopper",
   "item.teromod.ender_dispenser": "Ender Dispenser",
   "block.teromod.book_table": "Book Table",
-  "item.teromod.book_table": "Book Table"
+  "item.teromod.book_table": "Book Table",
+  "enchantment.teromod.effect_protection": "Effect Protection",
+  "enchantment.teromod.magnet": "Magnet",
+  "enchantment.teromod.imperception": "Imperception",
+  "enchantment.teromod.absorption": "Absorption"
 }
