@@ -63,7 +63,7 @@ public class RailCreatorMenu extends AbstractContainerMenu {
             @Override
             public void onTake(@NonNull Player player, @NonNull ItemStack stack) {
                 if (container instanceof RailCreatorEntity entity) {
-                    entity.consumeInputs();
+                    entity.consumeInputs(stack);
                 }
                 super.onTake(player, stack);
             }
@@ -155,6 +155,14 @@ public class RailCreatorMenu extends AbstractContainerMenu {
             }
         }
         return remaining <= 0;
+    }
+
+    @Override
+    public void removed(@NonNull Player player) {
+        super.removed(player);
+        if (this.blockPos != null && !player.level().isClientSide()) {
+            ModSounds.railCreatorClose(player.level(), this.blockPos);
+        }
     }
 
     @Override
