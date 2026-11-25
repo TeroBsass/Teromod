@@ -154,6 +154,7 @@ public class StopperBlock extends Block {
     }
 
     private static void destroyCart(Level level, BlockPos pos, Direction trackDirection, AbstractMinecart cart) {
+        ModSounds.stopperCatch(level, pos);
         ItemStack cartItem = cart.getPickResult();
         double x = cart.getX();
         double y = cart.getY();
@@ -174,6 +175,7 @@ public class StopperBlock extends Block {
             ItemStack remainder = dispenser.insertItem(cartItem);
             if (remainder.getCount() < originalCount) {
                 dispenser.setChanged();
+                ModSounds.cartStored(level, dispenser.getBlockPos(), dispenser instanceof EnderDispenserEntity);
             }
             cartItem = remainder;
         }

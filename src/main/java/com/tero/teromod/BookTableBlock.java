@@ -70,6 +70,7 @@ public class BookTableBlock extends BaseEntityBlock {
                                                         @NonNull BlockPos pos, @NonNull Player player,
                                                         @NonNull BlockHitResult hit) {
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof BookTableEntity entity) {
+            ModSounds.bookTableOpen(level, pos);
             player.openMenu(entity, pos);
         }
         return InteractionResult.SUCCESS;

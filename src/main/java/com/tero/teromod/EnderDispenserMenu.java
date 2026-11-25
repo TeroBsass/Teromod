@@ -84,6 +84,14 @@ public class EnderDispenserMenu extends AbstractContainerMenu {
     }
 
     @Override
+    public void removed(@NonNull Player player) {
+        super.removed(player);
+        if (this.blockPos != null && !player.level().isClientSide()) {
+            ModSounds.enderDispenserClose(player.level(), this.blockPos);
+        }
+    }
+
+    @Override
     public boolean stillValid(@NonNull Player player) {
         if (!this.container.stillValid(player)) {
             return false;

@@ -143,6 +143,7 @@ public class PlayerDetectorRailBlock extends BaseRailBlock {
             if (shouldBePressed && !wasPressed) {
                 BlockState newState = state.setValue(POWERED, true);
                 level.setBlockAndUpdate(pos, newState);
+                ModSounds.detectorRail(level, pos, true);
                 this.updatePowerToConnected(level, pos, newState, true);
                 level.updateNeighborsAt(pos, this);
                 level.updateNeighborsAt(pos.below(), this);
@@ -152,6 +153,7 @@ public class PlayerDetectorRailBlock extends BaseRailBlock {
             if (!shouldBePressed && wasPressed) {
                 BlockState newState = state.setValue(POWERED, false);
                 level.setBlockAndUpdate(pos, newState);
+                ModSounds.detectorRail(level, pos, false);
                 this.updatePowerToConnected(level, pos, newState, false);
                 level.updateNeighborsAt(pos, this);
                 level.updateNeighborsAt(pos.below(), this);

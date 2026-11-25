@@ -26,6 +26,7 @@ public class EnderDispenserBlock extends DispenserBlock {
                                                         @NonNull BlockPos pos, @NonNull Player player,
                                                         @NonNull BlockHitResult hit) {
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof EnderDispenserEntity dispenser) {
+            ModSounds.enderDispenserOpen(level, pos);
             player.openMenu(dispenser, pos);
             player.awardStat(Stats.INSPECT_DISPENSER);
         }
@@ -53,6 +54,7 @@ public class EnderDispenserBlock extends DispenserBlock {
         DispenseItemBehavior behavior = getDispenseMethod(level, itemStack);
         if (behavior != DispenseItemBehavior.NOOP) {
             dispenser.setItem(slot, behavior.dispense(source, itemStack));
+            ModSounds.enderDispense(level, pos);
         }
     }
 

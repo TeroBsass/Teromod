@@ -69,8 +69,8 @@ public class RailCreatorEntity extends BlockEntity implements Container, MenuPro
         return new RailCreatorMenu(id, inv, this);
     }
 
-    public void consumeInputs() {
-        if (!(this.level instanceof ServerLevel)) return;
+    public void consumeInputs(ItemStack takenResult) {
+        if (!(this.level instanceof ServerLevel serverLevel)) return;
         for (int slot = SLOT_RED_STONE; slot <= SLOT_IRON_NUGGET; slot++) {
             ItemStack input = this.items.get(slot);
             if (input.isEmpty()) return;
@@ -82,6 +82,7 @@ public class RailCreatorEntity extends BlockEntity implements Container, MenuPro
                 this.items.set(slot, ItemStack.EMPTY);
             }
         }
+        ModSounds.railCreated(serverLevel, this.worldPosition, takenResult);
         setChanged();
         updateResult();
     }
@@ -117,6 +118,9 @@ public class RailCreatorEntity extends BlockEntity implements Container, MenuPro
         BlockState state = getBlockState();
         if (state.hasProperty(RailCreatorBlock.LIT) && state.getValue(RailCreatorBlock.LIT) != hasResult) {
             serverLevel.setBlockAndUpdate(this.worldPosition, state.setValue(RailCreatorBlock.LIT, hasResult));
+            if (hasResult) {
+                ModSounds.railCreatorReady(serverLevel, this.worldPosition);
+            }
         }
         setChanged();
     }

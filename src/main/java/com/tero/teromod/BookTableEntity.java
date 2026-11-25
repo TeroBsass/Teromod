@@ -3,8 +3,6 @@ package com.tero.teromod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -86,8 +84,7 @@ public class BookTableEntity extends BlockEntity implements Container, MenuProvi
         if (expectedResult.isEmpty() || !ItemStack.isSameItemSameComponents(expectedResult, takenResult)) return;
 
         NonNullList<ItemStack> remainingItems = recipe.get().value().getRemainingItems(input);
-        serverLevel.playSound(null, this.worldPosition, SoundEvents.ENCHANTMENT_TABLE_USE,
-                SoundSource.BLOCKS, 1.0F, 1.0F);
+        ModSounds.disenchant(serverLevel, this.worldPosition);
         for (int slot = SLOT_ENCHANT_ITEM; slot <= SLOT_BOOK; slot++) {
             ItemStack remainder = remainingItems.get(slot);
             ItemStack ingredient = this.items.get(slot);
@@ -134,6 +131,9 @@ public class BookTableEntity extends BlockEntity implements Container, MenuProvi
         BlockState state = getBlockState();
         if (state.hasProperty(BookTableBlock.LIT) && state.getValue(BookTableBlock.LIT) != hasResult) {
             serverLevel.setBlockAndUpdate(this.worldPosition, state.setValue(BookTableBlock.LIT, hasResult));
+            if (hasResult) {
+                ModSounds.bookTableReady(serverLevel, this.worldPosition);
+            }
         }
         setChanged();
     }
