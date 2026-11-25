@@ -9,5 +9,9 @@
   "item.teromod.stopper": "Стоппер",
   "item.teromod.ender_dispenser": "Эндер-раздатчик",
   "block.teromod.book_table": "Книжный столик",
-  "item.teromod.book_table": "Книжный столик"
+  "item.teromod.book_table": "Книжный столик",
+  "enchantment.teromod.effect_protection": "Защита от эффектов",
+  "enchantment.teromod.magnet": "Магнит",
+  "enchantment.teromod.imperception": "Невосприятие",
+  "enchantment.teromod.absorption": "Поглощение"
 }
