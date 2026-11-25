@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:redstone",
+  "base": "minecraft:detector_rail",
+  "addition": "minecraft:redstone",
+  "result": {
+    "id": "minecraft:detector_rail",
+    "count": 2
+  }
+}

@@ -18,6 +18,7 @@ public class BookTableMenu extends AbstractContainerMenu {
     private static final int RESULT_SLOT = BookTableEntity.SLOT_RESULT;
     private static final int PLAYER_INVENTORY_START = RESULT_SLOT + 1;
     private static final int PLAYER_INVENTORY_END = PLAYER_INVENTORY_START + 36;
+    private static final int[] INVENTORY_COLUMN_X = {8, 26, 44, 62, 80, 99, 117, 135, 153};
     private final Container container;
     private final @Nullable BlockPos blockPos;
 
@@ -35,13 +36,13 @@ public class BookTableMenu extends AbstractContainerMenu {
         this.container = container;
         this.blockPos = blockPos;
 
-        addSlot(new Slot(container, BookTableEntity.SLOT_ENCHANT_ITEM, 41, 28) {
+        addSlot(new Slot(container, BookTableEntity.SLOT_ENCHANT_ITEM, 41, 29) {
             @Override
             public boolean mayPlace(@NonNull ItemStack stack) {
                 return !stack.is(Items.ENCHANTED_BOOK) && EnchantmentHelper.hasAnyEnchantments(stack);
             }
         });
-        addSlot(new Slot(container, BookTableEntity.SLOT_BOOK, 84, 28) {
+        addSlot(new Slot(container, BookTableEntity.SLOT_BOOK, 84, 29) {
             @Override
             public boolean mayPlace(@NonNull ItemStack stack) {
                 return stack.is(Items.BOOK);
@@ -62,14 +63,16 @@ public class BookTableMenu extends AbstractContainerMenu {
             }
         });
 
+        // The columns in book_table_gui.png are ~18.2 GUI pixels apart (not 18), so a fixed step
+        // drifts by about 1px at the right edge. These x positions follow the texture's slot frames.
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
                 addSlot(new Slot(inventory, column + row * 9 + 9,
-                        8 + column * 18, 71 + row * 18));
+                        INVENTORY_COLUMN_X[column], 71 + row * 18));
             }
         }
         for (int column = 0; column < 9; column++) {
-            addSlot(new Slot(inventory, column, 8 + column * 18, 128));
+            addSlot(new Slot(inventory, column, INVENTORY_COLUMN_X[column], 128));
         }
     }
 

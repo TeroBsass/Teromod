@@ -43,7 +43,7 @@ public class RailCreatorMenu extends AbstractContainerMenu {
         addSlot(new Slot(container, RailCreatorEntity.SLOT_RAIL, 26, 46) {
             @Override
             public boolean mayPlace(@NonNull ItemStack stack) {
-                return stack.is(Items.RAIL);
+                return isRail(stack);
             }
         });
         addSlot(new Slot(container, RailCreatorEntity.SLOT_IRON_NUGGET, 44, 46) {
@@ -69,15 +69,26 @@ public class RailCreatorMenu extends AbstractContainerMenu {
             }
         });
 
+        // The rows in rail_creator_gui.png are 17 GUI pixels apart (not 18), so the slots
+        // follow the texture; otherwise the items drift out of the lower rows' frames.
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
                 addSlot(new Slot(inventory, column + row * 9 + 9,
-                        8 + column * 18, 80 + row * 18));
+                        8 + column * 18, 80 + row * 17));
             }
         }
         for (int column = 0; column < 9; column++) {
             addSlot(new Slot(inventory, column, 8 + column * 18, 135));
         }
+    }
+
+    /** Every rail the Rail Creator can duplicate: the four vanilla rails and the mod's player detector rail. */
+    private static boolean isRail(ItemStack stack) {
+        return stack.is(Items.RAIL)
+                || stack.is(Items.POWERED_RAIL)
+                || stack.is(Items.DETECTOR_RAIL)
+                || stack.is(Items.ACTIVATOR_RAIL)
+                || stack.is(ModBlocks.PLAYER_DETECTOR_RAIL_ITEM.get());
     }
 
     @Override

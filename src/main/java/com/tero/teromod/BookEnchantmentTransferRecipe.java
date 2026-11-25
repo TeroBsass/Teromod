@@ -55,7 +55,10 @@ public class BookEnchantmentTransferRecipe extends CustomRecipe {
         for (int slot = 0; slot < input.size(); slot++) {
             if (input.getItem(slot) == source) {
                 ItemStack disenchantedItem = source.copyWithCount(1);
-                disenchantedItem.remove(DataComponents.ENCHANTMENTS);
+                // The enchanting table only accepts items whose ENCHANTMENTS component is present and
+                // empty (ItemStack#isEnchantable). Removing the component makes the item unenchantable,
+                // so reset it to EMPTY instead.
+                disenchantedItem.set(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
                 disenchantedItem.remove(DataComponents.STORED_ENCHANTMENTS);
                 remainingItems.set(slot, disenchantedItem);
                 break;
