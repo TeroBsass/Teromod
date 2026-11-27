@@ -25,7 +25,8 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
  * (the void and the /kill command), so the player can never become impossible to kill.
  *
  * Absorption only decides whether the hit happens. It does not touch effects, so Effect Protection
- * keeps working independently of it.
+ * keeps working independently of it. A melee hit with a successful Imperception roll ignores
+ * Absorption together with the rest of the armor.
  */
 @EventBusSubscriber(modid = TeroMod.MODID)
 public class AbsorptionHandler {
@@ -38,6 +39,9 @@ public class AbsorptionHandler {
         LivingEntity entity = event.getEntity();
         if (event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
             return;
+        }
+        if (ImperceptionHandler.ignoresArmor(event)) {
+            return; // a successful Imperception hit ignores the armor and its Absorption
         }
         float chance = 0.0F;
         for (EquipmentSlot slot : ARMOR_SLOTS) {
