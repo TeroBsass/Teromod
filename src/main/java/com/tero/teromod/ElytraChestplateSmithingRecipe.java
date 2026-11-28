@@ -53,7 +53,10 @@ public class ElytraChestplateSmithingRecipe extends SimpleSmithingRecipe {
     public static final MapCodec<ElytraChestplateSmithingRecipe> MAP_CODEC =
             MapCodec.unit(ElytraChestplateSmithingRecipe::new);
     public static final StreamCodec<RegistryFriendlyByteBuf, ElytraChestplateSmithingRecipe> STREAM_CODEC =
-            StreamCodec.unit(new ElytraChestplateSmithingRecipe());
+            // The recipe has no data. StreamCodec.unit would insist on one exact instance, but every data
+            // reload creates a new one (MAP_CODEC), so write nothing and make a fresh recipe when reading.
+            StreamCodec.of((buf, recipe) -> {
+            }, buf -> new ElytraChestplateSmithingRecipe());
     public static final RecipeSerializer<ElytraChestplateSmithingRecipe> SERIALIZER =
             new RecipeSerializer<>(MAP_CODEC, STREAM_CODEC);
 
