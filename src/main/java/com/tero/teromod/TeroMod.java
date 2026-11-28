@@ -46,7 +46,6 @@ public class TeroMod {
                         output.accept(ModBlocks.ENDER_DISPENSER_ITEM);
                         output.accept(ModBlocks.BOOK_TABLE_ITEM);
                         output.accept(ModItems.CREATION_TEMPLATE);
-                        output.accept(ModItems.ELYTRA_NETHERITE_CHESTPLATE);
                     })
                     .build());
 

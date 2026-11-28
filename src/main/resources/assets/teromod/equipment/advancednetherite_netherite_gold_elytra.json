@@ -1,0 +1,25 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "advancednetherite:netherite_gold"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "advancednetherite:netherite_gold"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "advancednetherite:netherite_gold"
+      }
+    ],
+    "wings": [
+      {
+        "texture": "minecraft:elytra",
+        "use_player_texture": true
+      }
+    ]
+  }
+}

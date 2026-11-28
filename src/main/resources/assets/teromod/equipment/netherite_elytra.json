@@ -5,6 +5,11 @@
         "texture": "minecraft:netherite"
       }
     ],
+    "humanoid_baby": [
+      {
+        "texture": "minecraft:netherite"
+      }
+    ],
     "humanoid_leggings": [
       {
         "texture": "minecraft:netherite"
@@ -16,5 +21,13 @@
         "use_player_texture": true
       }
     ]
-  }
+  },
+  "trim_overrides": [
+    {
+      "palette": "minecraft:trim/netherite_darker",
+      "when": {
+        "material": "minecraft:netherite"
+      }
+    }
+  ]
 }
