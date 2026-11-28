@@ -6,11 +6,9 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.equipment.Equippable;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -44,9 +42,10 @@ public class ElytraChestplateClient {
                     0, 0, BADGE_SIZE, BADGE_SIZE, BADGE_SIZE, BADGE_SIZE, BADGE_SIZE, BADGE_SIZE);
             return true;
         };
+        // The item components are not bound yet while this event fires, so the items cannot be filtered
+        // here. The decorator is registered for every item and decides per stack (hasElytra) instead.
         for (Item item : BuiltInRegistries.ITEM) {
-            Equippable equippable = item.components().get(DataComponents.EQUIPPABLE);
-            if (item != Items.ELYTRA && equippable != null && equippable.slot() == EquipmentSlot.CHEST) {
+            if (item != Items.ELYTRA) {
                 event.register(item, badge);
             }
         }
