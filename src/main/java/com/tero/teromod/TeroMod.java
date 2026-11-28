@@ -45,6 +45,8 @@ public class TeroMod {
                         output.accept(ModBlocks.STOPPER_ITEM);
                         output.accept(ModBlocks.ENDER_DISPENSER_ITEM);
                         output.accept(ModBlocks.BOOK_TABLE_ITEM);
+                        output.accept(ModItems.CREATION_TEMPLATE);
+                        output.accept(ModItems.ELYTRA_NETHERITE_CHESTPLATE);
                     })
                     .build());
 
@@ -58,6 +60,7 @@ public class TeroMod {
         BLOCKS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModBlocks.ITEMS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModMenus.MENUS.register(modEventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);

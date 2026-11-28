@@ -20,5 +20,8 @@
   "enchantment.teromod.effect_protection": "Effect Protection",
   "enchantment.teromod.magnet": "Magnet",
   "enchantment.teromod.imperception": "Imperception",
-  "enchantment.teromod.absorption": "Absorption"
+  "enchantment.teromod.absorption": "Absorption",
+  "item.teromod.creation_template": "Creation Template",
+  "item.teromod.creation_template.lore": "Smithing Table: netherite chestplate + elytra",
+  "item.teromod.elytra_netherite_chestplate": "Netherite Elytra Chestplate"
 }

@@ -13,5 +13,8 @@
   "enchantment.teromod.effect_protection": "Защита от эффектов",
   "enchantment.teromod.magnet": "Магнит",
   "enchantment.teromod.imperception": "Невосприятие",
-  "enchantment.teromod.absorption": "Поглощение"
+  "enchantment.teromod.absorption": "Поглощение",
+  "item.teromod.creation_template": "Шаблон созидания",
+  "item.teromod.creation_template.lore": "Стол кузнеца: незеритовый нагрудник + элитры",
+  "item.teromod.elytra_netherite_chestplate": "Незеритовый нагрудник с элитрами"
 }

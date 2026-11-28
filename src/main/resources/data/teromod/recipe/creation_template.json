@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "minecraft:phantom_membrane",
+    "D": "minecraft:diamond",
+    "N": "minecraft:netherite_ingot"
+  },
+  "pattern": [
+    "PDP",
+    "DND",
+    "PDP"
+  ],
+  "result": {
+    "id": "teromod:creation_template",
+    "count": 1
+  }
+}
