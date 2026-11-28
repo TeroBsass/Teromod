@@ -1,6 +1,7 @@
 package com.tero.teromod;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
@@ -38,7 +39,8 @@ import net.minecraft.world.item.enchantment.ItemEnchantments;
  * The result is the very same item (so its icon, trim, dye, name, damage and enchantments are untouched),
  * with the glider component added. For the vanilla armor materials the equipment asset is swapped for a
  * copy that also draws the elytra wings on the back (assets/teromod/equipment/&lt;material&gt;_elytra.json);
- * other (modded) chestplates glide too but get no wings model.
+ * the Advanced Netherite chestplates are covered the same way; other modded chestplates glide too but get
+ * no wings model.
  *
  * The enchantments of the elytra are merged in wherever they can be applied to the result:
  * <ul>
@@ -55,9 +57,14 @@ public class ElytraChestplateSmithingRecipe extends SimpleSmithingRecipe {
     public static final RecipeSerializer<ElytraChestplateSmithingRecipe> SERIALIZER =
             new RecipeSerializer<>(MAP_CODEC, STREAM_CODEC);
 
-    /** Vanilla armor assets that have a "&lt;name&gt;_elytra" copy with wings in this mod's resources. */
-    private static final Set<String> WINGED_ASSETS = Set.of(
-            "leather", "chainmail", "iron", "gold", "diamond", "netherite", "copper");
+    /**
+     * Armor assets that have a copy with wings in this mod's resources (assets/teromod/equipment):
+     * "&lt;namespace&gt;_&lt;name&gt;_elytra.json", or just "&lt;name&gt;_elytra.json" for vanilla.
+     * Besides vanilla this covers the Advanced Netherite mod.
+     */
+    private static final Map<String, Set<String>> WINGED_ASSETS = Map.of(
+            "minecraft", Set.of("leather", "chainmail", "iron", "gold", "diamond", "netherite", "copper"),
+            "advancednetherite", Set.of("netherite_iron", "netherite_gold", "netherite_emerald", "netherite_diamond"));
 
     // Created on first use: the items are not registered yet while this class is being loaded.
     private Optional<Ingredient> template;
@@ -93,11 +100,13 @@ public class ElytraChestplateSmithingRecipe extends SimpleSmithingRecipe {
         Equippable equippable = result.get(DataComponents.EQUIPPABLE);
         if (equippable != null && equippable.assetId().isPresent()) {
             Identifier asset = equippable.assetId().get().identifier();
-            if (asset.getNamespace().equals("minecraft") && WINGED_ASSETS.contains(asset.getPath())) {
+            String namespace = asset.getNamespace();
+            if (WINGED_ASSETS.getOrDefault(namespace, Set.of()).contains(asset.getPath())) {
+                String name = (namespace.equals("minecraft") ? "" : namespace + "_") + asset.getPath() + "_elytra";
                 result.set(DataComponents.EQUIPPABLE, Equippable.builder(equippable.slot())
                         .setEquipSound(equippable.equipSound())
                         .setAsset(ResourceKey.create(EquipmentAssets.ROOT_ID,
-                                Identifier.fromNamespaceAndPath(TeroMod.MODID, asset.getPath() + "_elytra")))
+                                Identifier.fromNamespaceAndPath(TeroMod.MODID, name)))
                         .build());
             }
         }
