@@ -15,5 +15,6 @@
   "enchantment.teromod.imperception": "Невосприятие",
   "enchantment.teromod.absorption": "Поглощение",
   "item.teromod.creation_template": "Шаблон созидания",
-  "item.teromod.creation_template.lore": "Стол кузнеца: любой нагрудник + элитры"
+  "item.teromod.creation_template.lore": "Стол кузнеца: любой нагрудник + элитры",
+  "item.teromod.elytra_upgrade": "С элитрами"
 }

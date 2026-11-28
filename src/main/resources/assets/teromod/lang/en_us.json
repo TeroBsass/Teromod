@@ -22,5 +22,6 @@
   "enchantment.teromod.imperception": "Imperception",
   "enchantment.teromod.absorption": "Absorption",
   "item.teromod.creation_template": "Creation Template",
-  "item.teromod.creation_template.lore": "Smithing Table: any chestplate + elytra"
+  "item.teromod.creation_template.lore": "Smithing Table: any chestplate + elytra",
+  "item.teromod.elytra_upgrade": "Has Elytra"
 }
