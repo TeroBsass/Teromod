@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "minecraft:diamond",
+    "E": "minecraft:end_stone",
+    "T": "teromod:creation_template"
+  },
+  "pattern": [
+    "DTD",
+    "DED",
+    "DDD"
+  ],
+  "result": {
+    "id": "teromod:creation_template",
+    "count": 2
+  }
+}

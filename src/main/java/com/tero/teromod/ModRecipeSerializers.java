@@ -14,6 +14,10 @@ public final class ModRecipeSerializers {
             RECIPE_SERIALIZERS.register("book_enchantment_transfer",
                     () -> BookEnchantmentTransferRecipe.SERIALIZER);
 
+    public static final Supplier<RecipeSerializer<ElytraChestplateSmithingRecipe>> ELYTRA_CHESTPLATE_SMITHING =
+            RECIPE_SERIALIZERS.register("elytra_chestplate_smithing",
+                    () -> ElytraChestplateSmithingRecipe.SERIALIZER);
+
     private ModRecipeSerializers() {
     }
 }
